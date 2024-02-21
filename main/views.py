@@ -43,7 +43,7 @@ class ImageConvertAPIView(APIView):
         # tts
         tts = gTTS(text=all, lang= "ko")
         tts.save("voice.mp3")
-        voice_file_path = os.path.abspath('voice.mp3')
+        voice_file_path = 'http://localhost:5173' + os.path.abspath('voice.mp3')
 
         all = all.split('\n')
         all = [item for item in all if item != '']
