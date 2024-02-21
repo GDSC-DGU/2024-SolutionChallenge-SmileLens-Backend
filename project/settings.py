@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'main', 
 
     'rest_framework',
+    'corsheaders', # CORS 관련 앱 추가
 
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -73,6 +75,20 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "project.wsgi.application"
+
+# cors 설정 추가
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:5173',
+
+    'http://localhost',
+    'http://localhost:3000',
+    'http://localhost:5173',
+]
 
 
 # Database
